@@ -1,0 +1,41 @@
+{
+  "folders": [
+    {
+      "name": "Lists",
+      "id": 1
+    },
+    {
+      "name": "Thoughts",
+      "id": 2
+    },
+    {
+      "name": "New folder",
+      "id": 3
+    },
+    {
+      "name": "New folder 3",
+      "id": 4
+    }
+  ],
+  "archive": [],
+  "notes": [
+    {
+      "id": 7,
+      "title": "Sun Tzu",
+      "folderId": 2,
+      "body": "To achieve one hundred victories in one hundred battles is not the height of skill. The height of skill is to defeat the enemy without fighting."
+    },
+    {
+      "title": "Holidays shopping list",
+      "body": "\nBuy insurance,\nBuy tickets,\nBook a hotel\n",
+      "folderId": 1,
+      "id": 8
+    },
+    {
+      "title": "Shopping list",
+      "body": "\n1. Tea,\n2. Potatoes,\n3. Sparkling water\n",
+      "folderId": "1",
+      "id": 9
+    }
+  ]
+}
