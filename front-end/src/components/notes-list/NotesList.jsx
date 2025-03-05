@@ -11,9 +11,10 @@ import {
   Form,
   useLocation,
 } from "react-router-dom";
+import { fetchWithAuth } from "../../utils/fetchWithAuth";
 
 export function createNewNote({ params }) {
-  return fetch(`http://localhost:3000/notes`, {
+  return fetchWithAuth(`http://localhost:3000/notes`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",

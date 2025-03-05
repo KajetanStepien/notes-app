@@ -1,20 +1,40 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "email": "john@example.com",
+      "password": "$2b$10$tJ1.sZSHqgLsetJmObUKCeX/QQHLP4bzhk5xa8OzfPElNffgzHQr6"
+    },
+    {
+      "id": 2,
+      "email": "katerina@example.com",
+      "password": "$2b$10$tJ1.sZSHqgLsetJmObUKCeX/QQHLP4bzhk5xa8OzfPElNffgzHQr6"
+    }
+  ],
   "folders": [
     {
       "name": "Lists",
-      "id": 1
+      "id": 1,
+      "userId": 1
     },
     {
       "name": "Thoughts",
-      "id": 2
+      "id": 2,
+      "userId": 1
     },
     {
       "name": "New folder",
-      "id": 3
+      "id": 3,
+      "userId": 1
     },
     {
       "name": "New folder 3",
-      "id": 4
+      "id": 4,
+      "userId": 1
+    },
+    {
+      "name": "Nowy folder 125",
+      "id": 5
     }
   ],
   "archive": [],

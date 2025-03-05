@@ -12,15 +12,22 @@ import {
   deleteNoteFromArchive,
   restoreNoteFromArchive,
 } from "./components/note/Note";
+import { Login } from "./components/login/Login";
+import { ProtectedRoute } from "./components/protected-route/ProtectedRoute";
+import { fetchWithAuth } from "./utils/fetchWithAuth";
 
 const router = createBrowserRouter([
   {
-    element: <App />,
+    element: (
+      <ProtectedRoute>
+        <App />
+      </ProtectedRoute>
+    ),
     path: "/",
     errorElement: <NotFound />,
     action: createFolder,
     loader: () => {
-      return fetch("http://localhost:3000/folders");
+      return fetchWithAuth("http://localhost:3000/folders");
     },
     shouldRevalidate: ({ formAction }) => {
       if (formAction === "/") {
@@ -32,10 +39,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "notes/:folderId",
-        element: <NotesList />,
+        element: (
+          <ProtectedRoute>
+            <NotesList />
+          </ProtectedRoute>
+        ),
         action: createNewNote,
         loader: ({ params }) => {
-          return fetch(
+          return fetchWithAuth(
             `http://localhost:3000/notes?folderId=${params.folderId}`
           );
         },
@@ -46,7 +57,7 @@ const router = createBrowserRouter([
             action: updateNote,
             errorElement: <NotFound />,
             loader: async ({ params }) => {
-              const result = await fetch(
+              const result = await fetchWithAuth(
                 `http://localhost:3000/notes/${params.noteId}`
               );
               if (result.status === 404) {
@@ -75,7 +86,9 @@ const router = createBrowserRouter([
         path: "/archive",
         element: <NotesList />,
         loader: () => {
-          return fetch("http://localhost:3000/archive", { method: "GET" });
+          return fetchWithAuth("http://localhost:3000/archive", {
+            method: "GET",
+          });
         },
         children: [
           {
@@ -84,7 +97,7 @@ const router = createBrowserRouter([
             action: updateNote,
             errorElement: <NotFound />,
             loader: async ({ params }) => {
-              const result = await fetch(
+              const result = await fetchWithAuth(
                 `http://localhost:3000/archive/${params.noteId}`
               );
               if (result.status === 404) {
@@ -114,6 +127,10 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ]);
 
