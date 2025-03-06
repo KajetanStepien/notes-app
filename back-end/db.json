@@ -34,7 +34,18 @@
     },
     {
       "name": "Nowy folder 125",
-      "id": 5
+      "id": 5,
+      "userId": 2
+    },
+    {
+      "id": 1741260043276,
+      "name": "",
+      "userId": 2
+    },
+    {
+      "id": 1741260050007,
+      "name": "Katerina's Folder",
+      "userId": 2
     }
   ],
   "archive": [],
@@ -56,6 +67,12 @@
       "body": "\n1. Tea,\n2. Potatoes,\n3. Sparkling water\n",
       "folderId": "1",
       "id": 9
+    },
+    {
+      "title": "New note",
+      "body": "Enter note content here.",
+      "folderId": "1741260050007",
+      "id": 10
     }
   ]
 }
