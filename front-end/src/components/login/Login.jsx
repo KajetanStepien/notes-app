@@ -1,6 +1,6 @@
 import styles from "./Login.module.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 export function Login({ onLogin }) {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ export function Login({ onLogin }) {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.title}>Logowanie</h2>
+        <h2 className={styles.title}>Login</h2>
         {error && <p className={styles.error}>{error}</p>}
         <input
           type="email"
@@ -44,15 +44,21 @@ export function Login({ onLogin }) {
         />
         <input
           type="password"
-          placeholder="Hasło"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={styles.input}
           required
         />
         <button type="submit" className={styles.button}>
-          Zaloguj się
+          Log in
         </button>
+        <p>
+          Dont have an account?{" "}
+          <NavLink to="/register">
+            <a className={styles.link}>Sign up</a>
+          </NavLink>
+        </p>
       </form>
     </div>
   );

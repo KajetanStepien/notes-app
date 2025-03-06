@@ -11,6 +11,27 @@ const EXPIRATION_TIME = "1h";
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
+server.post("/register", (req, res) => {
+  const { email, password } = req.body;
+
+  const existingUser = router.db.get("users").find({ email }).value();
+  if (existingUser) {
+    return res.status(400).json({ message: "User already exists" });
+  }
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  const newUser = {
+    id: Date.now(),
+    email,
+    password: hashedPassword,
+  };
+
+  router.db.get("users").push(newUser).write();
+
+  res.status(201).json({ message: "User registered successfully" });
+});
+
 server.post("/login", (req, res) => {
   const { email, password } = req.body;
   console.log("Received login request:", { email, password });

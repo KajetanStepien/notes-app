@@ -13,6 +13,7 @@ import {
   restoreNoteFromArchive,
 } from "./components/note/Note";
 import { Login } from "./components/login/Login";
+import { Register } from "./components/register/Register";
 import { ProtectedRoute } from "./components/protected-route/ProtectedRoute";
 import { fetchWithAuth } from "./utils/fetchWithAuth";
 
@@ -131,6 +132,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "register",
+    element: <Register />,
   },
 ]);
 

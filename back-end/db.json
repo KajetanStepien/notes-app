@@ -9,6 +9,16 @@
       "id": 2,
       "email": "katerina@example.com",
       "password": "$2b$10$tJ1.sZSHqgLsetJmObUKCeX/QQHLP4bzhk5xa8OzfPElNffgzHQr6"
+    },
+    {
+      "id": 1741263274914,
+      "email": "johnyboy@example.com",
+      "password": "$2b$10$GeaKsRjVyE9scFjWTnvgHuzYxnv9utDru8aSKq0a0cYtNYv06VRgq"
+    },
+    {
+      "id": 1741263793575,
+      "email": "johnyboy12@example.com",
+      "password": "$2b$10$kFBb1wKsxlPT3OVF34oxQOZ.JQMKVWR.MbV.BKkcDcN8OFNEylojS"
     }
   ],
   "folders": [
@@ -46,6 +56,11 @@
       "id": 1741260050007,
       "name": "Katerina's Folder",
       "userId": 2
+    },
+    {
+      "id": 1741263313887,
+      "name": "jOHNY;S FOLDER",
+      "userId": 1741263274914
     }
   ],
   "archive": [],
