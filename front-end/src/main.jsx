@@ -36,6 +36,7 @@ const router = createBrowserRouter([
     loader: () => {
       const isLoggedIn = localStorage.getItem("token");
       if (!isLoggedIn) {
+        console.log("Not logged in");
         return redirect("/login");
       }
       return fetchWithAuth(`${url}/folders`);
