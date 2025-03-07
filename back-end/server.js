@@ -11,6 +11,12 @@ const EXPIRATION_TIME = "1h";
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`JSON Server is running on port ${PORT}`);
+});
+
 server.post("/register", (req, res) => {
   const { email, password } = req.body;
 
@@ -151,6 +157,3 @@ server.use((req, res, next) => {
 });
 
 server.use(router);
-server.listen(3000, () => {
-  console.log("JSON Server is running on port 3000");
-});

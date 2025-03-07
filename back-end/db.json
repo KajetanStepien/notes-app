@@ -19,6 +19,11 @@
       "id": 1741263793575,
       "email": "johnyboy12@example.com",
       "password": "$2b$10$kFBb1wKsxlPT3OVF34oxQOZ.JQMKVWR.MbV.BKkcDcN8OFNEylojS"
+    },
+    {
+      "id": 1741365317189,
+      "email": "kajtek@onet.pl",
+      "password": "$2b$10$Xuq/Fjf.PlUVLMbwW4nh8OItZK0uY5VccVH8edgSSkbBYeOZyCpZe"
     }
   ],
   "folders": [
