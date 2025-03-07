@@ -7,11 +7,13 @@ import { Logout } from "../../logout/Logout";
 import { NavLink, useLoaderData, Form, redirect } from "react-router-dom";
 import { fetchWithAuth } from "../../utils/fetchWithAuth";
 
+const url = "https://notes-app-ki1m.onrender.com";
+
 export async function createFolder(args) {
   const data = await args.request.formData();
   const folderName = data.get("folder-name");
 
-  return fetchWithAuth(`http://localhost:3000/folders`, {
+  return fetchWithAuth(`${url}/folders`, {
     method: "POST",
     body: JSON.stringify({
       name: folderName,

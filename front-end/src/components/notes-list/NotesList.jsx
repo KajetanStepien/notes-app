@@ -13,8 +13,10 @@ import {
 } from "react-router-dom";
 import { fetchWithAuth } from "../../utils/fetchWithAuth";
 
+const url = "https://notes-app-ki1m.onrender.com";
+
 export function createNewNote({ params }) {
-  return fetchWithAuth(`http://localhost:3000/notes`, {
+  return fetchWithAuth(`${url}/notes`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",

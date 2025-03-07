@@ -2,6 +2,8 @@ import styles from "./Login.module.css";
 import { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 
+const url = "https://notes-app-ki1m.onrender.com";
+
 export function Login({ onLogin }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -12,7 +14,7 @@ export function Login({ onLogin }) {
     e.preventDefault();
     setError("");
 
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch(`${url}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

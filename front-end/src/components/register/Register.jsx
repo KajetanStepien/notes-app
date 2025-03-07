@@ -2,6 +2,8 @@ import styles from "./Register.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const url = "https://notes-app-ki1m.onrender.com";
+
 export function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -19,7 +21,7 @@ export function Register() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch(`${url}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

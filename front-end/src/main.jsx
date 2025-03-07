@@ -17,6 +17,8 @@ import { Register } from "./components/register/Register";
 import { ProtectedRoute } from "./components/protected-route/ProtectedRoute";
 import { fetchWithAuth } from "./utils/fetchWithAuth";
 
+const url = "https://notes-app-ki1m.onrender.com";
+
 const router = createBrowserRouter([
   {
     element: (
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     action: createFolder,
     loader: () => {
-      return fetchWithAuth("http://localhost:3000/folders");
+      return fetchWithAuth(`${url}/folders`);
     },
     shouldRevalidate: ({ formAction }) => {
       if (formAction === "/") {
@@ -47,9 +49,7 @@ const router = createBrowserRouter([
         ),
         action: createNewNote,
         loader: ({ params }) => {
-          return fetchWithAuth(
-            `http://localhost:3000/notes?folderId=${params.folderId}`
-          );
+          return fetchWithAuth(`${url}/notes?folderId=${params.folderId}`);
         },
         children: [
           {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             errorElement: <NotFound />,
             loader: async ({ params }) => {
               const result = await fetchWithAuth(
-                `http://localhost:3000/notes/${params.noteId}`
+                `${url}/notes/${params.noteId}`
               );
               if (result.status === 404) {
                 throw new Error();
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
         path: "/archive",
         element: <NotesList />,
         loader: () => {
-          return fetchWithAuth("http://localhost:3000/archive", {
+          return fetchWithAuth(`${url}/archive`, {
             method: "GET",
           });
         },
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
             errorElement: <NotFound />,
             loader: async ({ params }) => {
               const result = await fetchWithAuth(
-                `http://localhost:3000/archive/${params.noteId}`
+                `${url}/archive/${params.noteId}`
               );
               if (result.status === 404) {
                 throw new Error();

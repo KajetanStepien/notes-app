@@ -12,6 +12,8 @@ import { useCallback } from "react";
 import { debounce } from "../../utils/debounce";
 import { fetchWithAuth } from "../../utils/fetchWithAuth";
 
+const url = "https://notes-app-ki1m.onrender.com";
+
 const NoteEditor = ({ children }) => (
   <div className={styles["note-editor"]}>{children}</div>
 );
@@ -22,11 +24,11 @@ export async function deleteNote({ params, request }) {
   const body = formData.get("body");
   const folderId = formData.get("folderId");
 
-  await fetchWithAuth(`http://localhost:3000/notes/${params.noteId}`, {
+  await fetchWithAuth(`${url}/notes/${params.noteId}`, {
     method: "DELETE",
   });
 
-  return fetchWithAuth("http://localhost:3000/archive", {
+  return fetchWithAuth(`${url}/archive`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +49,7 @@ export async function updateNote({ request, params }) {
   const title = data.get("title");
   const body = data.get("body");
 
-  return fetchWithAuth(`http://localhost:3000/notes/${params.noteId}`, {
+  return fetchWithAuth(`${url}/notes/${params.noteId}`, {
     method: "PATCH",
     body: JSON.stringify({
       title,
@@ -60,7 +62,7 @@ export async function updateNote({ request, params }) {
 }
 
 export async function deleteNoteFromArchive({ params }) {
-  return fetchWithAuth(`http://localhost:3000/archive/${params.noteId}`, {
+  return fetchWithAuth(`${url}/archive/${params.noteId}`, {
     method: "DELETE",
   }).then(() => {
     return redirect(`/archive`);
@@ -73,11 +75,11 @@ export async function restoreNoteFromArchive({ request, params }) {
   const body = formData.get("body");
   const folderId = formData.get("folderId");
 
-  await fetchWithAuth(`http://localhost:3000/archive/${params.noteId}`, {
+  await fetchWithAuth(`${url}/archive/${params.noteId}`, {
     method: "DELETE",
   });
 
-  return fetchWithAuth(`http://localhost:3000/notes/`, {
+  return fetchWithAuth(`${url}/notes/`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
