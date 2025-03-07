@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 import { App } from "./App";
 import NotesList from "./components/notes-list/NotesList";
 import { deleteNote, Note } from "./components/note/Note";
@@ -30,6 +34,10 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     action: createFolder,
     loader: () => {
+      const isLoggedIn = localStorage.getItem("token");
+      if (!isLoggedIn) {
+        return redirect("/login");
+      }
       return fetchWithAuth(`${url}/folders`);
     },
     shouldRevalidate: ({ formAction }) => {
@@ -132,10 +140,12 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+    errorElement: <NotFound />,
   },
   {
     path: "register",
     element: <Register />,
+    errorElement: <NotFound />,
   },
 ]);
 
