@@ -34,11 +34,6 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     action: createFolder,
     loader: () => {
-      const isLoggedIn = localStorage.getItem("token");
-      if (!isLoggedIn) {
-        console.log("Not logged in");
-        return redirect("/login");
-      }
       return fetchWithAuth(`${url}/folders`);
     },
     shouldRevalidate: ({ formAction }) => {

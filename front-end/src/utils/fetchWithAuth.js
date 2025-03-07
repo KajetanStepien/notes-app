@@ -4,5 +4,11 @@ export const fetchWithAuth = async (url, options = {}) => {
     ...options.headers,
     Authorization: `Bearer ${token}`,
   };
-  return fetch(url, { ...options, headers });
+  const response = await fetch(url, { ...options, headers });
+  if (response.status === 401) {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+    throw new Error("Unauthorized");
+  }
+  return response;
 };
