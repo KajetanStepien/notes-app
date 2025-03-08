@@ -3,7 +3,7 @@ import { Folder } from "../folder/Folder";
 import { Title } from "../title/Title";
 import { TopBar } from "../top-bar/TopBar";
 import { AddNewButton } from "../add-new-button/AddNewButton";
-import { Logout } from "../../logout/Logout";
+import { Logout } from "../logout/Logout";
 import { NavLink, useLoaderData, Form, redirect } from "react-router-dom";
 import { fetchWithAuth } from "../../utils/fetchWithAuth";
 
@@ -66,10 +66,10 @@ const FoldersList = () => {
           </NavLink>
         ))}
       </UserCreatedFolders>
-      <Logout />
       <NavLink to="/archive">
         <Folder>Archive</Folder>
       </NavLink>
+      <Logout />
     </Folders>
   );
 };
