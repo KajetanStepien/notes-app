@@ -52,7 +52,7 @@ const FoldersList = () => {
             placeholder="Folder name"
             name="folder-name"
           />
-          <AddNewButton type="submit">+</AddNewButton>
+          <AddNewButton type="submit"></AddNewButton>
         </Form>
       </TopBar>
 

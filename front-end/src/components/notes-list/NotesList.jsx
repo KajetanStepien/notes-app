@@ -49,7 +49,7 @@ const NotesList = () => {
         <TopBar>
           <Title>Notes</Title>
           <Form method="POST">
-            <AddNewButton>+</AddNewButton>
+            <AddNewButton></AddNewButton>
           </Form>
         </TopBar>
 
