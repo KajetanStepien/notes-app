@@ -1,4 +1,3 @@
-import styles from "./AddNewButton.module.css";
 import IconButton from "@mui/material/IconButton";
 import { createSvgIcon } from "@mui/material/utils";
 

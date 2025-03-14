@@ -11,6 +11,10 @@ import {
 import { useCallback } from "react";
 import { debounce } from "../../utils/debounce";
 import { fetchWithAuth } from "../../utils/fetchWithAuth";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ReplayIcon from "@mui/icons-material/Replay";
+import { Icon } from "@mui/material";
 
 const url = "https://notes-app-ki1m.onrender.com";
 
@@ -123,9 +127,9 @@ const Note = () => {
         });
       }}
     >
-      <button className={styles.button}>
-        <img className={styles.image} src="/src/assets/restore.svg" />
-      </button>
+      <IconButton size="small" type="submit" aria-label="restore">
+        <ReplayIcon />
+      </IconButton>
     </Form>
   );
 
@@ -149,13 +153,16 @@ const Note = () => {
             });
           }}
         >
-          <button
+          <IconButton
+            type="submit"
+            size="small"
+            aria-label="delete"
             className={`${styles.button} ${
               resolved.pathname.includes("archive") ? styles["align-right"] : ""
             }`}
           >
-            <img className={styles.image} src={RemoveIcon} />
-          </button>
+            <DeleteIcon />
+          </IconButton>
         </Form>
       </TopBar>
       <Form method="PATCH" onChange={onChangeCallback}>
