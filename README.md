@@ -33,7 +33,7 @@ The application is available online at: [Notes-App](https://app-n0tes.netlify.ap
 ## 🚀 Local Installation
 ### 1️⃣ Clone the repository:
 ```bash
-git clone https://github.com/YourRepository/notes-app.git
+git clone https://github.com/KajetanStepien/notes-app.git
 cd notes-app
 ```
 
