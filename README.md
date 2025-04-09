@@ -72,10 +72,5 @@ The application uses `db.json` to store user data, folders, and notes.
 
 ---
 
-## 👨‍💻 Author
-Created by [Your Name or GitHub Handle].
-
----
-
 💡 **Have suggestions for improvements?** Feel free to open an issue or submit a pull request! 🚀
 
